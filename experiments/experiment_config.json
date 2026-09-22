@@ -59,7 +59,6 @@
     "sensitivity_individual_top_match_rate": 0.75,
     "sensitivity_max_sign_change_rate": 0.2,
     "content_automatic_pass_rate": 1.0,
-    "content_unsupported_count": 0,
     "latency_minimum_time_saving_rate": 0.2
   }
 }
