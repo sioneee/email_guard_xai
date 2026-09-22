@@ -1,0 +1,65 @@
+{
+  "protocol_version": "1.0",
+  "model": {
+    "type": "knn_distance",
+    "feature_dimension": 295,
+    "index_file": "eg_index.joblib"
+  },
+  "explanation": {
+    "target_verdict": "suspicious",
+    "reference_method": "ben_pool_scaler_mean",
+    "impact_formula": "original_malware_proximity - changed_malware_proximity",
+    "positive_impacts_only": true
+  },
+  "feature_groups": [
+    {
+      "id": "general",
+      "start": 0,
+      "end_exclusive": 10
+    },
+    {
+      "id": "sections",
+      "start": 10,
+      "end_exclusive": 265
+    },
+    {
+      "id": "datadirectories",
+      "start": 265,
+      "end_exclusive": 295
+    }
+  ],
+  "display_levels": {
+    "high_minimum": 0.15,
+    "medium_minimum": 0.05,
+    "low_maximum_exclusive": 0.05
+  },
+  "static_observations": {
+    "high_entropy_minimum": 7.0,
+    "low_import_count_minimum": 1,
+    "low_import_count_maximum": 20,
+    "packing_score_minimum": 2
+  },
+  "latency_experiment": {
+    "runs_per_policy": 10,
+    "click_rates": [
+      0.1,
+      0.3,
+      0.5,
+      1.0
+    ],
+    "file_io_included": false,
+    "model_load_measured_separately": true
+  },
+  "acceptance_criteria": {
+    "fidelity_verdict_match_rate": 1.0,
+    "fidelity_max_ratio_delta": 0.0001,
+    "faithfulness_xai_beats_reverse_rate": 0.75,
+    "sensitivity_external_mean_top_match_rate": 0.8,
+    "sensitivity_external_median_top_match_rate": 0.8,
+    "sensitivity_individual_top_match_rate": 0.75,
+    "sensitivity_max_sign_change_rate": 0.2,
+    "content_automatic_pass_rate": 1.0,
+    "content_unsupported_count": 0,
+    "latency_minimum_time_saving_rate": 0.2
+  }
+}
