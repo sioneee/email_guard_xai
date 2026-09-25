@@ -2,25 +2,19 @@ import argparse
 import csv
 import importlib.util
 from pathlib import Path
+from project_paths import XAI_DATA_DIR
 
 import joblib
 import numpy as np
 
 from adapters.knn295 import Knn295Detector
-from config import INDEX_PATH
+from config import INDEX_PATH, TRIAGE_PATH
 
 
-DEFAULT_MANIFEST_PATH = Path(
-    r"C:\email_guard_xai_data\manifests\manifest_xai.csv"
-)
+DEFAULT_MANIFEST_PATH = XAI_DATA_DIR / "manifests/manifest_xai.csv"
 
-DEFAULT_RESULT_PATH = Path(
-    r"C:\email_guard_xai_data\results\fidelity_results.csv"
-)
+DEFAULT_RESULT_PATH = XAI_DATA_DIR / "results/fidelity_results.csv"
 
-TRIAGE_PATH = Path(
-    r"C:\workspace_Email\email_guard\ml\triage.py"
-)
 
 
 def load_original_triage():

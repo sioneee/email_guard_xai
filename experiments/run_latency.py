@@ -5,6 +5,7 @@ import math
 import random
 import time
 from pathlib import Path
+from project_paths import XAI_DATA_DIR
 
 import numpy as np
 
@@ -13,13 +14,9 @@ from explainers.proximity import build_explanation
 from renderers.korean import render_explanation
 
 
-DEFAULT_MANIFEST = Path(
-    r"C:\email_guard_xai_data\manifests\manifest_pilot.csv"
-)
+DEFAULT_MANIFEST = XAI_DATA_DIR / "manifests/manifest_pilot.csv"
 
-DEFAULT_OUTPUT = Path(
-    r"C:\email_guard_xai_data\results\latency_pilot.csv"
-)
+DEFAULT_OUTPUT = XAI_DATA_DIR / "results/latency_pilot.csv"
 
 
 CLICK_RATES = [

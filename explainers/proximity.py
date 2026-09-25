@@ -2,7 +2,6 @@
 #섹션·엔트로피 피처를 정상 기준으로 바꿔 보기
 #데이터 디렉터리 피처를 정상 기준으로 바꿔 보기
 
-#cd C:\email_guard_xai
 #python app.py
 
 import numpy as np
@@ -39,7 +38,8 @@ def malware_proximity(detector, vector):
     d_ben_pool = detector._kdist(detector.ben_pool, vector)
     d_ben = (d_ben_big + d_ben_pool) / 2
 
-    ratio = d_mal / (d_mal + d_ben + 1e-9)
+    denominator = d_mal + d_ben
+    ratio = d_mal / denominator if denominator > 0 else float('nan')
 
     return {
         "ratio": float(ratio),

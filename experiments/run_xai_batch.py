@@ -3,12 +3,13 @@ import hashlib
 import time
 import argparse
 from pathlib import Path
+from project_paths import XAI_DATA_DIR
 
 from adapters.knn295 import Knn295Detector
 from explainers.proximity import build_explanation
 from renderers.korean import render_explanation
 
-DATA_DIR = Path(r"C:\email_guard_xai_data")
+DATA_DIR = XAI_DATA_DIR
 
 DEFAULT_MANIFEST_PATH = DATA_DIR / "manifests" / "manifest_xai.csv"
 DEFAULT_RESULTS_PATH = DATA_DIR / "results" / "xai_results.csv"

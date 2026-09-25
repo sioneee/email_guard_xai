@@ -2,19 +2,18 @@ import csv
 import hashlib
 from datetime import date
 from pathlib import Path
+from project_paths import XAI_DATA_DIR, WINDOWS_DIR
 
 
-OUTPUT_PATH = Path(
-    r"C:\email_guard_xai_data\manifests\manifest_controls.csv"
-)
+OUTPUT_PATH = XAI_DATA_DIR / "manifests/manifest_controls.csv"
 
-SYSTEM32_DIR = Path(r"C:\Windows\System32")
+SYSTEM32_DIR = WINDOWS_DIR / "System32"
 
 NON_PE_PATHS = [
-    Path(r"C:\Windows\win.ini"),
-    Path(r"C:\Windows\System32\drivers\etc\hosts"),
-    Path(r"C:\Windows\System32\drivers\etc\protocol"),
-    Path(r"C:\Windows\System32\drivers\etc\services"),
+    WINDOWS_DIR / "win.ini",
+    WINDOWS_DIR / "System32/drivers/etc/hosts",
+    WINDOWS_DIR / "System32/drivers/etc/protocol",
+    WINDOWS_DIR / "System32/drivers/etc/services",
 ]
 
 

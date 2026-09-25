@@ -3,7 +3,6 @@ import hashlib
 from explainers.proximity import build_explanation
 from renderers.korean import render_explanation
 from flask import Flask, jsonify, request
-from flask_cors import CORS
 
 from adapters.knn295 import Knn295Detector
 
@@ -11,7 +10,7 @@ app = Flask(__name__)
 app.json.ensure_ascii = False
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 
-CORS(app)
+# Local demonstration API; production integration reuses the team's auth/CORS.
 
 detector = None
 startup_error = None
@@ -66,4 +65,4 @@ def explanations():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5001, debug=True)
+    app.run(host="127.0.0.1", port=5001, debug=False)

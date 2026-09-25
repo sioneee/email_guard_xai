@@ -1,20 +1,18 @@
 import csv
+import os
 import json
 import unittest
 import urllib.request
 import uuid
 from pathlib import Path
+from project_paths import XAI_DATA_DIR
 
 
 BASE_URL = "http://127.0.0.1:5001"
 
-MALWARE_RESULTS_PATH = Path(
-    r"C:\email_guard_xai_data\results\malware_batch_results.csv"
-)
+MALWARE_RESULTS_PATH = XAI_DATA_DIR / "results/malware_batch_results.csv"
 
-CONTROL_RESULTS_PATH = Path(
-    r"C:\email_guard_xai_data\results\controls_batch_results.csv"
-)
+CONTROL_RESULTS_PATH = XAI_DATA_DIR / "results/controls_batch_results.csv"
 
 
 def read_csv(path):
@@ -74,6 +72,8 @@ def post_file(file_path):
         )
 
 
+@unittest.skipUnless(os.getenv('EMAIL_GUARD_RUN_LIVE_TESTS') == '1',
+                     'Live API tests require explicit opt-in, a local server and reference files')
 class XaiApiIntegrationTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

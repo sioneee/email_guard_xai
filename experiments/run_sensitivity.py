@@ -2,6 +2,7 @@ import argparse
 import csv
 import hashlib
 from pathlib import Path
+from project_paths import XAI_DATA_DIR
 
 import numpy as np
 
@@ -12,22 +13,13 @@ from explainers.proximity import (
 )
 
 
-DEFAULT_TARGET_MANIFEST = Path(
-    r"C:\email_guard_xai_data\manifests\manifest_pilot.csv"
-)
+DEFAULT_TARGET_MANIFEST = XAI_DATA_DIR / "manifests/manifest_pilot.csv"
 
-DEFAULT_REFERENCE_MANIFEST = Path(
-    r"C:\email_guard_xai_data\manifests\manifest_reference.csv"
-)
+DEFAULT_REFERENCE_MANIFEST = XAI_DATA_DIR / "manifests/manifest_reference.csv"
 
-DEFAULT_OUTPUT = Path(
-    r"C:\email_guard_xai_data\results\sensitivity_pilot.csv"
-)
+DEFAULT_OUTPUT = XAI_DATA_DIR / "results/sensitivity_pilot.csv"
 
-DEFAULT_REFERENCE_OUTPUT = Path(
-    r"C:\email_guard_xai_data\results"
-    r"\sensitivity_reference_validation.csv"
-)
+DEFAULT_REFERENCE_OUTPUT = XAI_DATA_DIR / 'results/sensitivity_reference_validation.csv'
 
 
 def sha256_of(file_bytes):
