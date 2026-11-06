@@ -3,6 +3,7 @@ import csv
 import hashlib
 import itertools
 from pathlib import Path
+from project_paths import XAI_DATA_DIR
 
 import numpy as np
 
@@ -14,13 +15,9 @@ from explainers.proximity import (
 )
 
 
-DEFAULT_MANIFEST_PATH = Path(
-    r"C:\email_guard_xai_data\manifests\manifest_pilot.csv"
-)
+DEFAULT_MANIFEST_PATH = XAI_DATA_DIR / "manifests/manifest_pilot.csv"
 
-DEFAULT_OUTPUT_PATH = Path(
-    r"C:\email_guard_xai_data\results\faithfulness_pilot.csv"
-)
+DEFAULT_OUTPUT_PATH = XAI_DATA_DIR / "results/faithfulness_pilot.csv"
 
 
 GROUP_MAP = {

@@ -1,28 +1,8 @@
-import os
-from pathlib import Path
+from project_paths import configured_path
 
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-
-pe_features_path = os.getenv("EMAIL_GUARD_PE_FEATURES")
-index_path = os.getenv("EMAIL_GUARD_INDEX")
-
-if not pe_features_path:
-    raise RuntimeError(
-        ".env 파일에 EMAIL_GUARD_PE_FEATURES 경로가 없습니다."
-    )
-
-if not index_path:
-    raise RuntimeError(
-        ".env 파일에 EMAIL_GUARD_INDEX 경로가 없습니다."
-    )
-
-
-PE_FEATURES_PATH = Path(pe_features_path)
-INDEX_PATH = Path(index_path)
+PE_FEATURES_PATH = configured_path('EMAIL_GUARD_PE_FEATURES', '../email_guard/ml/pe_features.py')
+INDEX_PATH = configured_path('EMAIL_GUARD_INDEX', '../email_guard/backend/eg_index.joblib')
+TRIAGE_PATH = configured_path('EMAIL_GUARD_TRIAGE', str(PE_FEATURES_PATH.parent / 'triage.py'))
 
 
 def check_backend_files():

@@ -1,9 +1,10 @@
 from pathlib import Path
+from project_paths import DATASET_DIR
 
 from adapters.knn295 import Knn295Detector
 
 
-DATASET_DIR = Path(r"C:\email_guard_dataset\extracted_temp")
+DATASET_DIR = DATASET_DIR / "extracted_temp"
 MAX_FILES = 100
 
 
